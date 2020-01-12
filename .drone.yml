@@ -1,10 +1,9 @@
 ---
 kind: pipeline
-type: docker
 name: default
   
 steps:
-  - name: build:
+  - name: build
     image: node:11.10.1
     commands:
       - npm i --production --registry=https://registry.npm.taobao.org
