@@ -1,0 +1,19 @@
+{
+  "name": "egg-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "egg-scripts start --port=9000",
+    "dev": "egg-bin dev"
+  },
+  "dependencies": {
+    "egg": "^2.26.0",
+    "egg-scripts": "^2.12.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "egg-bin": "^4.14.1"
+  }
+}
