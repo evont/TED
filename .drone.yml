@@ -13,7 +13,7 @@ steps:
   commands:
     - pwd
     - ls
-    - cp /src/egg
+    - cp -r ./ /src/egg
 
 trigger:
   branch:
