@@ -12,10 +12,11 @@ steps:
   image: node
   volumes:
   - name: prod
-    path: /root/drone/src
+    path: /root/traefik/egg_server
   commands:
     - pwd
     - git clone https://github.com/evont/TED.git .
+    - cd ../ && docker-compose up -d
     - ls
 
 trigger:
