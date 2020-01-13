@@ -4,8 +4,8 @@ type: docker
 name: default
 
 workspace:
-  base: /root/traefik
-  path: egg_server
+  base: /root
+  path: traefik
 
 clone:
   disable: true
@@ -15,7 +15,7 @@ steps:
   image: node
   volumes:
   - name: prod
-    path: /root/traefik
+    path: /traefik
   commands:
     - pwd
     - rm -rf egg_server
@@ -31,4 +31,4 @@ trigger:
 volumes:
 - name: prod
   host:
-    path: /root/traefik
+    path: /root
