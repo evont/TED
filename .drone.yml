@@ -4,7 +4,7 @@ type: docker
 name: default
 
 workspace:
-  base: /root/traefik/e
+  base: /root/traefik
   path: egg_server
 
 clone: 
@@ -20,8 +20,6 @@ steps:
     - pwd
     - rm -rf egg_server
     - git clone https://github.com/evont/TED.git egg_server
-    - cd egg_server && npm i --production --registry=https://registry.npm.taobao.org && cd ../
-    - docker-compose up -d
     - ls
 
 trigger:
