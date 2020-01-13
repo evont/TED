@@ -1,11 +1,20 @@
 ---
 kind: pipeline
-name: default
 type: docker
+name: default
+
+workspace:
+  base: ~/drone-src/
+  path: src/github.com/egg
 
 steps:
-- name: build
+- name: egg-build
   image: node
+  commands:
+    - pwd
+    - npm i --production --registry=https://registry.npm.taobao.org
+    - ls
+    - docker-compose up -d
 
 trigger:
   branch:
