@@ -3,10 +3,9 @@ kind: pipeline
 type: docker
 name: default
 
-workspace:
-  base: /root/drone
-  path: src
-
+clone:
+  disable: true
+  
 steps:
 - name: egg-build
   image: node
@@ -28,4 +27,4 @@ trigger:
 volumes:
 - name: prod
   host:
-    path: /root/drone/src
+    path: /root/traefik/egg_server
