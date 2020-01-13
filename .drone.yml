@@ -18,7 +18,7 @@ steps:
     path: /root/traefik/egg_server
   commands:
     - pwd
-    - git clone https://github.com/evont/TED.git .
+    - git pull https://github.com/evont/TED.git master
     - cd ../ && docker-compose up -d
     - ls
 
