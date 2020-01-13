@@ -6,8 +6,6 @@ type: docker
 steps:
 - name: build
   image: node
-  commands:
-    - npm i --production --registry=https://registry.npm.taobao.org
 
 trigger:
   branch:
