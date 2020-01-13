@@ -8,7 +8,6 @@ steps:
   image: node
   volumes:
   - name: prod
-    path: /drone/src
   commands:
     - pwd
     - npm i --production --registry=https://registry.npm.taobao.org
