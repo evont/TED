@@ -4,16 +4,16 @@ type: docker
 name: default
 
 workspace:
-  base: /root/drone-src
-  path: src/github.com/egg
+  base: /src
+  path: /egg
 
 steps:
 - name: egg-build
   image: node
   commands:
     - pwd
-    - npm i --production --registry=https://registry.npm.taobao.org
     - ls
+    - cp /src/egg
 
 trigger:
   branch:
