@@ -22,4 +22,4 @@ trigger:
 volumes:
 - name: prod
   host:
-    path: /root/drone/src
+    path: /var/lib/drone/src
