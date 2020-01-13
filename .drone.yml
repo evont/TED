@@ -5,7 +5,7 @@ name: default
 
 workspace:
   base: /root/drone
-  path: /src
+  path: src
 
 steps:
 - name: egg-build
