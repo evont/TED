@@ -27,4 +27,4 @@ trigger:
 volumes:
 - name: prod
   host:
-    path: /root/drone/src
+    path: /src
