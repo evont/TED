@@ -3,9 +3,13 @@ kind: pipeline
 type: docker
 name: default
 
-clone:
-  disable: true
-  
+workspace:
+  base: /root/traefik/e
+  path: egg_server
+
+clone: 
+  disabled: true
+
 steps:
 - name: egg-build
   image: node
