@@ -15,11 +15,13 @@ steps:
   image: node
   volumes:
   - name: prod
-    path: /root/traefik/egg_server
+    path: /root/traefik
   commands:
     - pwd
-    - git pull https://github.com/evont/TED.git master
-    - cd ../ && docker-compose up -d
+    - rm -rf egg_server
+    - git clone https://github.com/evont/TED.git egg_server
+    - cd egg_server && npm i --production --registry=https://registry.npm.taobao.org && cd ../
+    - docker-compose up -d
     - ls
 
 trigger:
