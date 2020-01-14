@@ -8,9 +8,11 @@ steps:
   - name: egg-docker
     image: plugins/docker
     settings: 
-      username: DOCKER_USERNAME
-      password: DOCKER_PASSWORD
-      repo: egistry.cn-hangzhou.aliyuncs.com/nefelibata/egg:
+      username: 
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD 
+      repo: registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:
       registry: registry.cn-hangzhou.aliyuncs.com
       auto_tag: true
 
