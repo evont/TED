@@ -8,14 +8,11 @@ steps:
   - name: egg-docker
     image: plugins/docker
     settings: 
-      DOCKER_USERNAME:
-        from_secret: DOCKER_USERNAME
-      DOCKER_PASSWORD:
-        from_secret: DOCKER_PASSWORD
-    commands:
-      - docker login --username=${DOCKER_USERNAME} --password-stdin=${DOCKER_PASSWORD} registry.cn-hangzhou.aliyuncs.com
-      - docker tag ${DRONE_COMMIT} registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:${DRONE_BUILD_NUMBER}
-      - docker push registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:${DRONE_BUILD_NUMBER}
+      username: DOCKER_USERNAME
+      password: DOCKER_PASSWORD
+      repo: egistry.cn-hangzhou.aliyuncs.com/nefelibata/egg:
+      registry: registry.cn-hangzhou.aliyuncs.com
+      auto_tag: true
 
 trigger:
   branch:
