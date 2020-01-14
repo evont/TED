@@ -5,18 +5,10 @@ name: default
 steps:
   - name: egg-docker
     image: plugins/docker
-    settings:
-      use_cache: true
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-    tags:
-      - latest
     commands:
       - docker login -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD} registry.cn-hangzhou.aliyuncs.com
-      - docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:[镜像版本号]
-      - docker push registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:[镜像版本号]
+      - docker tag ${DRONE_COMMIT} registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:${DRONE_BUILD_NUMBER}
+      - docker push registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:${DRONE_BUILD_NUMBER}
 
 trigger:
   branch:
