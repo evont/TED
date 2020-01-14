@@ -12,7 +12,7 @@ steps:
         from_secret: DOCKER_USERNAME
       password:
         from_secret: DOCKER_PASSWORD 
-      repo: registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:
+      repo: registry.cn-hangzhou.aliyuncs.com/nefelibata/egg
       registry: registry.cn-hangzhou.aliyuncs.com
       auto_tag: true
 
