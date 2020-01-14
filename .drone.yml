@@ -7,6 +7,11 @@ name: default
 steps:
   - name: egg-docker
     image: plugins/docker
+    settings: 
+      DOCKER_USERNAME:
+        from_secret: DOCKER_USERNAME
+      DOCKER_PASSWORD:
+        from_secret: DOCKER_PASSWORD
     commands:
       - docker login -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD} registry.cn-hangzhou.aliyuncs.com
       - docker tag ${DRONE_COMMIT} registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:${DRONE_BUILD_NUMBER}
