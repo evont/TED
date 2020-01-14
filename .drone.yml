@@ -2,33 +2,24 @@
 kind: pipeline
 type: docker
 name: default
-
-workspace:
-  base: /root
-  path: traefik
-
-clone:
-  disable: true
-
 steps:
-- name: egg-build
-  image: node
-  volumes:
-  - name: prod
-    path: /traefik
-  commands:
-    - pwd
-    - rm -rf egg_server
-    - git clone https://github.com/evont/TED.git egg_server
-    - ls
+  - name: egg-docker
+    image: plugins/docker
+    settings:
+      use_cache: true
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    tags:
+      - latest
+    commands:
+      - docker login -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD} registry.cn-hangzhou.aliyuncs.com
+      - docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:[镜像版本号]
+      - docker push registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:[镜像版本号]
 
 trigger:
   branch:
-  - master
+    - master
   event:
-  - push
-
-volumes:
-- name: prod
-  host:
-    path: /root
+    - push
