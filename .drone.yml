@@ -8,7 +8,7 @@ steps:
   - name: egg-docker
     image: plugins/docker
     settings: 
-      mirror: https://docker.mirrors.ustc.edu.cn
+      mirror: https://cjzbl7sd.mirror.aliyuncs.com
       username: 
         from_secret: DOCKER_USERNAME
       password:
