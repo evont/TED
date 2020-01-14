@@ -13,7 +13,7 @@ steps:
       DOCKER_PASSWORD:
         from_secret: DOCKER_PASSWORD
     commands:
-      - docker login -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD} registry.cn-hangzhou.aliyuncs.com
+      - docker login --username=${DOCKER_USERNAME} --password-stdin=${DOCKER_PASSWORD} registry.cn-hangzhou.aliyuncs.com
       - docker tag ${DRONE_COMMIT} registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:${DRONE_BUILD_NUMBER}
       - docker push registry.cn-hangzhou.aliyuncs.com/nefelibata/egg:${DRONE_BUILD_NUMBER}
 
