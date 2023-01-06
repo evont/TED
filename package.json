@@ -16,6 +16,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "egg-bin": "^4.14.1"
+    "egg-bin": "^4.20.0"
   }
 }
